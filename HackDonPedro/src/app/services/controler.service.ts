@@ -9,7 +9,7 @@ export class ControlerService {
 
   getUser(){
     return [
-      { id: 1234, 
+      { id: '010203', 
         name: 'Bruce Wayne',
         email:'Bruce_nao.eo@batman.com.br',
         loja: 'Starbucks',

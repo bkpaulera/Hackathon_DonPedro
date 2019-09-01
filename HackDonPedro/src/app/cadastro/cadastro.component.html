@@ -20,7 +20,7 @@
               </a>
             </div>
           <div class="col">
-              <a href="#" class="btn btn-primary" (click)="nextStep(1)">Fazer o cadastro
+              <a href="#" class="btn btn-primary" (click)="nextStep(3)">Fazer o cadastro
                 <!--<img src=".\assets\" class="face-icon">-->
               </a>
           </div>
@@ -51,17 +51,20 @@
     </div>
     <div *ngIf="step == 2">
       <h2>Solicite a confirmação do cadastro para o seu Gerente</h2>
-      <!--<div class="spinner-border text-success" role="status">
-        <span class="sr-only">Loading...</span>
-      </div>-->
       <button type="submit" class="btn btn-primary" style="text-align: end" (click)="nextStep(3)">Aprovar</button>
     </div>
     <div *ngIf="step == 3">
-      <h2>Token</h2>
-      <button (click)="nextStep(0)">Next</button>    
+      <div class="card">
+        <div class="card-header bg-success">
+          <h2 style="color: aliceblue">Seu Token foi gerado</h2>
+        </div>
+        <div class="card-body">
+            <h4>{{pessoas[0].id}}</h4>
+        </div>
+      </div>
     </div>
-    <div class="card-footer text-muted">
-      @copyrigth
+    <div class="card-footer text-muted" style="margin: 15px 0px 0px 0px">
+        ©2019 Copyright, todos os direitos reservados
     </div>
   </div>
 </div>

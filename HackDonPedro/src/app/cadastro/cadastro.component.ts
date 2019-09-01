@@ -12,7 +12,7 @@ export class CadastroComponent implements OnInit {
 
   pessoas:any[] = [];
   //name:String = 'name';
-  
+
   constructor(private _controlerService: ControlerService) {
 
   }
