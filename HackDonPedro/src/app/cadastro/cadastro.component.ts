@@ -18,7 +18,7 @@ export class CadastroComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.step=0;
+    this.step=-1;
     this.pessoas = this._controlerService.getUser();
   }
 

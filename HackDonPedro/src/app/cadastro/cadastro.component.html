@@ -1,5 +1,4 @@
 
-
 <div class="container">
   <nav class="nav-cadastro">
     <img src="..\assets\logo-parquedpedro.png" class="logo-header">
@@ -7,12 +6,42 @@
   </nav>
   <div class="card text-center">
     <div class="card-header">
-      <h3>Cadastro de Funcionario</h3>
+
+      <ng-container *ngIf="step>=0; else elseTemplate">
+        <ng-container *ngIf="step>=5; else elseTemplate">
+            <h3>Dashboard</h3>
+        </ng-container>
+        <ng-template #elseTemplate>
+            <h3>Cadastro de Funcionario</h3>
+        </ng-template>
+      </ng-container>
+      <ng-template #elseTemplate>
+        <h3>Plataforma</h3>
+      </ng-template>
+    </div>
+
+    <div *ngIf="step == -1">
+      <div class="card-body">
+        <h5 class="card-title">Bem vindo a Plataforma</h5>
+        <p class="card-text"></p>
+          <div class="row">
+            <div class="col">
+              <a href="#" class="btn btn-primary" (click)="nextStep(4)">Fazer o login 
+                <!--<img src=".\assets\" class="face-icon">-->
+              </a>
+            </div>
+          <div class="col">
+              <a href="#" class="btn btn-primary" (click)="nextStep(0)">Fazer o cadastro
+                <!--<img src=".\assets\" class="face-icon">-->
+              </a>
+          </div>
+        </div>  
+      </div>    
     </div>
     <div *ngIf="step == 0">
       <div class="card-body">
         <h5 class="card-title">Bem vindo a area de cadastro</h5>
-        <p class="card-text">Voce pode fazero seu cadastro aqui</p>
+        <p class="card-text">Voce pode fazer o seu cadastro aqui</p>
           <div class="row">
             <div class="col">
               <a href="#" class="btn btn-primary" (click)="nextStep(1)">Cadastrar com facebook 
@@ -28,7 +57,7 @@
       </div>    
     </div>
     <div *ngIf="step == 1">    
-      <h2>Confirmar info</h2>
+      <h2>Confirmar Informações</h2>
       <form>
         <div class="form-group">
           <label>Nome</label>
@@ -62,7 +91,46 @@
             <h4>{{pessoas[0].id}}</h4>
         </div>
       </div>
+      <button type="submit" class="btn btn-primary" style="text-align: end; margin: 15px 5px 5px 5px" (click)="nextStep(-1)">Voltar ao Menu</button>
     </div>
+    <div *ngIf="step == 4">
+      <div class="card">
+        <div class=" card-header bg-success">
+          <h2 style="color: aliceblue">Insira seu Token</h2>
+        </div>
+        <div class="card-body">
+            <input type="number" class="token"  min="111111" maxl="999999" placeholder="010203"/>
+            <a href="#" class="btn btn-primary" style="font-size: 40px;margin: 10px" (click)="nextStep(5)">Entrar 
+                <!--<img src=".\assets\" class="face-icon">-->
+            </a>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="step == 5">
+        <div class="card">
+          <div class=" card-header bg-success">
+            <h2 style="color: aliceblue">Promoções</h2>
+          </div>
+          <div class="card-body">
+              <div class="card border-success mb-3">
+                  <div class="card-header bg-transparent border-success"><img src="..\assets\starbucks.png" class="icon"><h1 class="card-title-txt">50% de desconto</h1></div>
+                  <div class="card-body text-success">
+                    <h5 class="card-title">Café Grande</h5>
+                    <p class="card-text">Valido dos dias 5 até 30 de Setembro</p>
+                  </div>
+                </div>
+          </div>
+          <div class="card-body">
+              <div class="card border-danger mb-3">
+                  <div class="card-header bg-transparent border-danger"><img src="..\assets\mc.png" class="icon"><h1 class="card-title-txt" style="color: #ff0000">50% de desconto</h1></div>
+                  <div class="card-body text-danger">
+                    <h5 class="card-title">Mc Lanche Feliz</h5>
+                    <p class="card-text">Valido dos dias 5 até 30 de Setembro</p>
+                  </div>
+                </div>
+          </div>
+        </div>
+      </div>  
     <div class="card-footer text-muted" style="margin: 15px 0px 0px 0px">
         ©2019 Copyright, todos os direitos reservados
     </div>
