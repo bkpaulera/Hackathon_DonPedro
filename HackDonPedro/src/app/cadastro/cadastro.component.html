@@ -1,0 +1,67 @@
+
+
+<div class="container">
+  <nav class="nav-cadastro">
+    <img src="..\assets\logo-parquedpedro.png" class="logo-header">
+    <!--<span class="navbar-text">Parque Dom Pedro</span>-->
+  </nav>
+  <div class="card text-center">
+    <div class="card-header">
+      <h3>Cadastro de Funcionario</h3>
+    </div>
+    <div *ngIf="step == 0">
+      <div class="card-body">
+        <h5 class="card-title">Bem vindo a area de cadastro</h5>
+        <p class="card-text">Voce pode fazero seu cadastro aqui</p>
+          <div class="row">
+            <div class="col">
+              <a href="#" class="btn btn-primary" (click)="nextStep(1)">Cadastrar com facebook 
+                <!--<img src=".\assets\" class="face-icon">-->
+              </a>
+            </div>
+          <div class="col">
+              <a href="#" class="btn btn-primary" (click)="nextStep(1)">Fazer o cadastro
+                <!--<img src=".\assets\" class="face-icon">-->
+              </a>
+          </div>
+        </div>  
+      </div>    
+    </div>
+    <div *ngIf="step == 1">    
+      <h2>Confirmar info</h2>
+      <form>
+        <div class="form-group">
+          <label>Nome</label>
+          <input type="text" class="form-control" placeholder="{{pessoas[0].name}}">
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" class="form-control" placeholder="{{pessoas[0].email}}">
+        </div>
+        <div class="form-group">
+          <label>CPF</label>
+          <input type="text" class="form-control"placeholder="{{pessoas[0].cpf}}">
+        </div>
+        <div class="form-group">
+          <label>Loja</label>
+          <input type="text" class="form-control"placeholder="{{pessoas[0].loja}}">
+        </div>
+          <button type="submit" class="btn btn-primary" style="text-align: end" (click)="nextStep(2)">Next</button>
+      </form>
+    </div>
+    <div *ngIf="step == 2">
+      <h2>Solicite a confirmação do cadastro para o seu Gerente</h2>
+      <!--<div class="spinner-border text-success" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>-->
+      <button type="submit" class="btn btn-primary" style="text-align: end" (click)="nextStep(3)">Aprovar</button>
+    </div>
+    <div *ngIf="step == 3">
+      <h2>Token</h2>
+      <button (click)="nextStep(0)">Next</button>    
+    </div>
+    <div class="card-footer text-muted">
+      @copyrigth
+    </div>
+  </div>
+</div>
